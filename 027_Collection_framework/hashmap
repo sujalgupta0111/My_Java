@@ -1,0 +1,93 @@
+Hashmap in java collection framework
+ChatGPT said:
+HashMap Java Collections Framework ka ek class hai jo key-value pairs ko store karne ke liye use hota hai. Ye class java.util package ke andar hoti hai, aur ye Map interface ko implement karti hai.
+
+🔍 Basic Definition
+java
+Copy
+Edit
+HashMap<K, V>
+K → Key ka type
+
+V → Value ka type
+
+✅ Keys unique hoti hain,
+❌ Duplicate keys allowed nahi hain
+✅ Values duplicate ho sakti hain
+
+⚙️ Internal Working
+1. Hashing mechanism:
+Jab hum put(key, value) karte hain, toh key ka hashCode() generate hota hai.
+
+Phir ye hash code internal bucket me convert hota hai using:
+index = hash(key.hashCode()) % capacity
+
+Bucket ek array of linked list or tree ho sakta hai (Java 8 se Tree bhi use hota hai for high collision).
+
+2. Collision Handling:
+Agar 2 keys ka hashcode same ho jaye, toh unki values ek hi bucket me store hoti hain.
+
+Java 8 ke baad:
+
+Agar ek bucket me entries 8 se zyada ho jayein → LinkedList ko Tree me convert kar deta hai (Red-Black Tree) for better performance.
+
+📦 Constructors
+java
+Copy
+Edit
+HashMap<> map = new HashMap<>();
+HashMap<>(int initialCapacity);
+HashMap<>(int initialCapacity, float loadFactor);
+HashMap<>(Map<? extends K, ? extends V> m);
+🔑 Important Methods
+Method	Description
+put(K key, V value)	Add or update a key-value pair
+get(Object key)	Return value for given key
+remove(Object key)	Remove key-value pair
+containsKey(Object key)	Check if key exists
+containsValue(Object value)	Check if value exists
+keySet()	Returns set of keys
+values()	Returns collection of values
+entrySet()	Returns set of key-value entries
+isEmpty()	Checks if map is empty
+size()	Returns number of key-value pairs
+clear()	Removes all entries from map
+
+🧪 Example
+java
+Copy
+Edit
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        HashMap<String, Integer> map = new HashMap<>();
+
+        map.put("Apple", 50);
+        map.put("Banana", 30);
+        map.put("Orange", 40);
+
+        System.out.println(map.get("Banana")); // 30
+
+        map.put("Banana", 35); // Update
+        System.out.println(map); // {Apple=50, Banana=35, Orange=40}
+
+        map.remove("Apple");
+        System.out.println(map.containsKey("Apple")); // false
+    }
+}
+📊 Time Complexity
+Operation	Time (Average)	Time (Worst)
+put()	O(1)	O(n)
+get()	O(1)	O(n)
+remove()	O(1)	O(n)
+
+Worst case jab collision zyada ho ya sab keys same bucket me ho (before treeify).
+
+🔒 HashMap vs Other Maps
+Feature	HashMap	LinkedHashMap	TreeMap
+Order Maintained	❌ No	✅ Insertion Order	✅ Sorted (keys)
+Null Keys/Values	✅ 1 null key	✅ 1 null key	❌ No null key
+Performance	Fastest	Slightly slower	Slower (O(log n))
+Internal Structure	Hash Table	Hash Table + DLL	Red-Black Tree
+

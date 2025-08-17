@@ -1,0 +1,245 @@
+"Java.io
+ try with resourse unhi classes ke oblect ko automatically close karta hai jinhone java,lang aka
+ auto closeable interface implement kaar rakha ho
+ autocloseable wk hie method contaion karta hai close()
+ closeable bhi lose ko defile karta hau aur yhea autocloseable ko extends bhi karta hai
+ jis class ne flushable ko implement kaar rahha hota hai jo folre karta buffer ko output dekhane ke
+ liye
+ File clsas imp;ement karti hai comparable ko
+ File myFile = new File("D\Workplace\JAVA\Eclipse\024_file_handeling\FileHandeling\Sujal.text");
+ yhea file koi physical file nahi banati disk me
+ It creates a File object in memory that represents the pathname abc.txt.
+ It does not touch the filesystem yet.
+ Think of it like this: you're just saying "Hey Java, I might want to work with a file named abc.txt."
+ agar object me new file banati hai tho
+ 1.createnewfile()
+ 2, use filewriter(abc.txt)
+ java.io is implement based on unix Operationg System that why java file object can use to
+ repereseent the directory and file as in unix directiory TREATED Directory AS A FILE
+ boolean createNewFile() 
+yhea false deta hai agar file already present ho location paar nahi
+ hoti then banata hai aur return deta hai
+ boolean mkdir() 
+ese folder/directory createhoti hai
+ boolean mikdir() 
+yhea use hota hai nested dir banane ke liye multiple folder at a time
+ boolean isFile() yhea tru deta hai agaar Object file ko poin karta hai tho
+ boolean isDirectory() yhea tru deta hai agaar Object kiai folder ko point karta hai tho ko poin
+ karta hai tho
+ agar kis directory me bhout sare files hai tho me unke name ek list me le sakta hu
+ String [] list() ka use karke
+ long length() 
+yhea chararaters return karta hai file me kitne hai space ko bhi charater count
+ karta hai yhea dir me humesha O byets return karega
+ boolean delete() 
+delete karne ke liye kisi specific file ko
+ Write Operation
+ FileWriter fw = new FileWriter(d); 
+Yhea write operation karne ke liye ek Object banayega
+ d ki jagha string me path bhi pass kaar sakte hai
+Agar yhea vala constructor use kiya then aagar file me kuch data phela se hua tho vo data
+ remove ho jayega and jo new data hai vo write ho jayega
+ FileWriter fw = new FileWriter(d,true);
+ Agar yhea vala constructor use kiya then aagar file me kuch data phela se hai vo nahi remove
+ hoga bakli usi me add ho jayega
+ yhea dono constructors agar file nahi hui thon use bana denge bina createNewFile() method ke
+ method of filewriter
+ wtrie(int char) 
+give value in acci code
+ write(char[] ch) 
+write(String S
+ given char array
+ give string
+ agar aap teeno write ek baar me likhoge then new line me nahi aata means ki teeno bina space
+ ke chupak jaynge
+ flush() method yhea garentee karta hai ki sara data file me likh gaya hai even a single charater
+ acche se
+ close() yhea close karta hai last me
+ problem with file writer
+ we have to give \n (line seperater manually)
+ thats why we need next level of
+ FileReader
+ to read the charater data (text data)of the file we use
+ constructors
+ new filereader(String path);
+ new filereader(new file("abc.txt"));
+ method of reader file class
+ int read() 
+it return unicode value of charater and it read single charater
+ int read(char[] ch) 
+it return unicode value of charater and it read array of charater
+ yhea return karta hai total number of chartater in file
+ note
+ 1.agar file me 1000 char hai aur size array ka jo paas kiya hai vo 100 hai then return karega 100
+ 1.agar file me 1000 char hai aur size array ka jo paas kiya hai vo 100000 hai then return karega
+ 1000
+ main problem of filereader
+ filereader ki yhea hai ki file reader me hum line by line file ka data read nahi kaar sakte hum
+ usme charater wise hie data use kaar sakte hai
+ for line by line reading we can use buffer reader
+ " yhea mera note hai inhe improve karo aur isi format me send karo
+ Absolutely! Hereʼs your note with improved language, correct technical details, clear formatting,
+ and some extra clarifications. Iʼve kept your "note-style" format with Hindi-English explanations.
+java.io
+ try-with-resources
+ Sirf unhi classes ke objects ko automatically close karta hai jinhone
+ java.lang.AutoCloseable
+ interface implement kiya ho.
+ AutoCloseable
+ interface mein ek hi method hota hai: 
+close()
+ .
+ Closeable
+ bhi close define karta hai aur 
+AutoCloseable
+ ko extend karta hai.
+ Flushable
+ Jis class ne 
+Flushable
+ implement kiya hai wo buffer ko output stream me forcefully
+ likhne ke liye 
+flush()
+ method provide karti hai (jaise 
+File
+ Class
+ File
+ class, 
+Comparable
+ interface implement karti hai.
+ Example:
+ OutputStream
+ , 
+Writer
+ classes).
+ File myFile = new File("D:\\Workplace\\JAVA\\Eclipse\\024_file_handeling\\FileHandeli
+ Ye line sirf memory me ek 
+File
+ object banati hai, koi physical file disk pe nahi banti.
+ Matlab, abhi tak "filesystem" pe koi change nahi hua, just ek reference ban gaya hai.
+ Aap samajh lo: "Hey Java, mujhe is naam ki file par kaam karna hai, file exist kare na
+ kare.”
+ Physical File kaise Banegi?
+ 1.
+ createNewFile()
+ method: Agar file pehle se present nahi hai toh nayi file banayega. Else,
+ false
+ return karega.
+ 2.
+ FileWriter
+ object bana kar likho: File automatically ban jayegi.
+ UNIX OS Influence:
+ java.io
+ API Unix ke file-system concept pe based hai. Unix mein directory bhi ek special
+ type ka file hoti hai, isi wajah se Java ke File objects directories ko bhi represent kar sakte
+ hain.
+ File
+ Class Methods
+ boolean createNewFile():
+ Agar file already exist karti hai toh 
+boolean mkdir():
+ Ek nayi directory create karta hai.
+ boolean mkdirs():
+ false
+ , warna nayi file banakar 
+true
+ .
+ Nested (parent+child) directories ek hi baar me create kar deta hai.
+ boolean isFile():
+ Agar file object kisi file ko point karta hai toh 
+true
+ .
+boolean isDirectory():
+ Agar file object kisi directory ko point karta hai toh 
+true
+ .
+ String[] list():
+ Kisi directory ke andar present sabhi file/directory ke naam ek array ke form me deta
+ hai.
+ long length():
+ File ke andar present total bytes (characters ko bhi count karta hai, spaces bhi).
+ Directory ke liye hamesha 
+0
+ return karega.
+ boolean delete():
+ File ya directory ko delete karne ke liye.
+ File Writing
+ FileWriter
+ Constructor:
+ FileWriter fw = new FileWriter(fileObjOrPath);
+ Isse agar file nahi hai toh automatic create ho jayegi, bina 
+createNewFile()
+ ke.
+ Saara purana data delete ho jayega, sirf naya content likha jayega.
+ Append Mode:
+ FileWriter fw = new FileWriter(fileObjOrPath, true);
+ Agar file me pehle se kuch likha hai, toh usi me naya content add ho jayega (purana
+ data remove nahi hota).
+ Common Methods:
+ write(int c)
+ 
+→
+ Ek character ASCII/Unicode value) likhne ke liye.
+ write(char[] ch)
+ 
+→
+ Array of chars likhne ke liye.
+ write(String str)
+ 
+→
+ String write karne ke liye.
+ > Note: In teeno methods se likhoge toh akathha likh dega, alag line me nahi aayega.
+ New line chahiye toh manually 
+\n
+ likhna padega.
+ flush()
+ 
+→
+ Ye ensure karta hai ke buffer me jo bhi pending data hai wo file me likh diya
+ gaya hai.
+ close()
+ 
+→
+ Writer object ko close karta hai (resources free karta hai).
+ Problem:
+ Harbar new line ke liye 
+\n
+ likhna padta hai, automatically line break nahi hoti.
+File Reading
+ FileReader
+ Purpose: Text file (char data) read karne ke liye.
+ Constructors:
+ new FileReader("abc.txt");
+ new FileReader(new File("abc.txt"));
+ Common Methods:
+ int read()
+ →
+ Ek character read karta hai (int Unicode value return karta hai), end of file par 
+hai.
+ int read(char[] ch)
+ →
+ Char array ko fill karega, return karega kitne actual chars read hue hain.
+ Agar file me 1000 chars hai aur array size 100 hai 
+→
+ return 100.
+ Agar file me 1000 chars hai aur array size 10000 hai 
+→
+ return 1000.
+ Limitation:-1
+ deta
+ FileReader character wise padhta hai, "line by line" reading possible nahi hoti hai.
+ TL;DR
+ Line by line read karne ke liye 
+BufferedReader
+ ka use hota hai.
+ File object: Sirf memory me reference hai, actual file ke liye either 
+writing operations FileWriter) karna hoga.
+ createNewFile()
+ yaa
+ Directory bhi "file" ki tarah treat hoti hai Java me Unix OS concept)
+ FileWriter: Text likhne ke liye, 
+\n
+ manually dena padta hai.
+ FileReader: Character level reading, line-by-line nahi kar sakte.
+ BufferedReader: Line by line reading possible.
+ Let me know if you want this even more condensed, or if youʼd like extra examples or code
+ snippets

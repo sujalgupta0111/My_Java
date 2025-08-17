@@ -1,0 +1,6 @@
+Hum koi bhi type jaise integer aur string aur kisi class ka object collection 
+me daal sakte the.
+but yhea ek issue create karta hai jaise hum ek array list me int string daal
+dete hai tho nikalte time hum yhea dhyan rakhna padega ki kis me kiya assign kaar rahe hai 
+aur agar galti se kisi aur type ka kisi aur me le liya(jaise string ko 
+int me) tho compile time error tho  nahi dega but run timee paar classcastexception dega
