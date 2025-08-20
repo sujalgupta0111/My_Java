@@ -1,0 +1,19 @@
+Agar Inheritance me child ne implement kaar rakha hai serealizable interface
+but parent ne nahi then es case me 4 cearios bante hai 
+
+1.Hum  child ko serealize kara sakte hai kyui Object class ne bhi implement nahi 
+  kaar rakha hota serealizable interface but sare objet ki parent class hoti hai vo
+ 
+2.At time of Serealization JVM check karta hai ki koi variable jo non serializable(yani parent class se)
+  area(zone) se aaya ho then JVM us variable ki Value ignore kaar deta hai aur aapni tafar se koi default
+  value assign kaar deta hai 
+  
+ 3.At time of Desirealization JVM check if any parent is non serializable then JVM give its instance variable values from that class 
+   to the Object that we get from the deserialization and 
+initiate  instance control flow that follow 3 step
+   1.Identification of Instance Member
+   2.Execution of Instant Variable Assingnment
+   3.Execution of no argument constructor of non serializable  parent class
+   
+ 4.Every non Serilizable parent class ko humesha  no agrs constructor contain karna 
+   jaruri hai nahi tho throw hogi Invalid class Exception
