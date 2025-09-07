@@ -1,0 +1,50 @@
+Multitasking 
+Executing  several tasks simultaneously is multitaksing 
+
+type of multi tasking 
+1. process based MultiTasking 
+2.Thread based Multitasking
+
+Process bases multi taksing-->
+Executing Several task simultaneously where each task is seperated independent program (process)
+It is most Suitable at OS level
+Ex--> Ek sath chrome aur Spotify chalana 
+
+Thread based multi threading
+Executing Several task simultaneously where eash task is seperated independent part of some program
+This is more suitable for Program level
+
+ex-> chrome me under ek thread webpage reder karega ,dusra thread file download karega  
+,teesra user se input handel karega 
+
+Advantage of Multitasking(Both)
+to increase he performance by reduce response time of system
+
+Main Application areas of Multithreading 
+1. to develop Animation
+2. to develop Games 
+3. to develop web server ,application Server etc to handle requests of user multi threading is used
+
+In process based process is smallest unit
+Thread based Thread is smallest unit
+thread is part of a process 
+
+Thread
+It is smallest Unit of execution within a program 
+It is lightweight Subprocess that run independently but share same memory space of the process
+allowed  mutipe task to execute cocurrently
+
+Thread vs Process
+
+Thread
+1.it is light weight 
+2.require less overhead
+3.share same space address and cooperative share the same heavy weight processes
+4.Interathread communicatiion is not expenxive 
+5.Context switching is not expensive  from one thread to another thread 
+Processes
+1.it is Heavy weight 
+2.require more  overhead
+3.share same space address and cooperative share the same heavy weight processes
+4.Intera thread communication is expenxive 
+5.Context switching is not expensive  from one thread to another thread 

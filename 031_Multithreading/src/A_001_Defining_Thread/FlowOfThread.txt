@@ -1,0 +1,7 @@
+1.JVM start and start Main thread 
+2.That main thread start main() method 
+3.After that main() method thread create chid thread object and start child thread
+4.Then main thread execute its Job in main() method then when main thread execute 
+                        t.start();
+5.Then main thread creates its child thread which perform sperate operations 
+   
